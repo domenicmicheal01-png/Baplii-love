@@ -3,140 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baplii - Манай Дурсамж</title>
+    <title>Бидний түүх - 10 Хуудас</title>
     <style>
-        :root { --sakura: #ffb7c5; --skyblue: #87ceeb; }
-        body { margin: 0; font-family: sans-serif; background: linear-gradient(135deg, var(--skyblue), var(--sakura)); display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
-        .container { background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 400px; width: 90%; margin: 20px; }
+        :root { --sakura: #ffb7c5; --skyblue: #87ceeb; --deep-pink: #ff4d6d; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, var(--skyblue), var(--sakura)); display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        .container { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); max-width: 400px; width: 90%; text-align: center; transition: 0.5s; position: relative; }
         .hidden { display: none; }
-        button { padding: 12px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s; }
-        .btn-yes { background-color: var(--sakura); color: white; border: 2px solid #ff9ead; }
-        .btn-no { background-color: #eee; color: #666; }
-        .card { background: white; padding: 12px; margin: 8px; border-radius: 12px; border-left: 5px solid var(--sakura); cursor: pointer; font-size: 14px; }
-        input { padding: 12px; border-radius: 10px; border: 2px solid var(--sakura); text-align: center; font-size: 18px; width: 80%; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 10px; object-fit: cover; height: 200px; }
-        .grid-memories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        h2 { color: var(--deep-pink); margin-bottom: 20px; }
+        p { color: #555; line-height: 1.6; }
+        button { padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s; font-size: 16px; width: 80%; background: var(--deep-pink); color: white; }
+        .card { background: white; padding: 15px; margin: 10px 0; border-radius: 15px; border-left: 5px solid var(--deep-pink); cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        img { width: 100%; border-radius: 20px; margin: 10px 0; height: 250px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        input { padding: 15px; border-radius: 15px; border: 2px solid var(--sakura); width: 80%; font-size: 20px; text-align: center; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
     <div id="page1" class="container">
-        <h2>Нээхийг хүсэж байна уу?</h2>
-        <button class="btn-yes" onclick="nextPage('code')">Тийм</button>
-        <button class="btn-no" onclick="alert('Дахин оролдоно уу, хөөрхөнөө')">Үгүй</button>
-    </div>
-
-    <div id="page-code" class="container hidden">
-        <h2>Нууц кодоо оруулна уу</h2>
-        <input type="number" id="code-input" placeholder="****">
-        <br><button class="btn-yes" onclick="checkCode()">Нэвтрэх</button>
+        <h2>Сайн уу, Миний эрдэнэ? ❤️</h2>
+        <p>Өнөөдөр чамдаа зориулж 10 хуудастай жижигхэн дурсамжийн ном бэлдлээ. Эхнээс нь дуустал үзээрэй.</p>
+        <button onclick="nextPage(2)">Бэлэн, нээе!</button>
     </div>
 
     <div id="page2" class="container hidden">
-        <h2>Чамдаа хайртай 6 шалтгаан</h2>
-        <div class="card" onclick="this.innerText='Чиний минь ер бусын гоё инээмсэглэл'">1. Дараарай</div>
-        <div class="card" onclick="this.innerText='Намайг үргэлж ойлгож, дэмждэгт'">2. Дараарай</div>
-        <div class="card" onclick="this.innerText='Хамтдаа өнгөрүүлсэн хором бүр нандин'">3. Дараарай</div>
-        <div class="card" onclick="this.innerText='Чиний минь ухаалаг бөгөөд зөөлөн зан'">4. Дараарай</div>
-        <div class="card" onclick="this.innerText='Бидний хамтдаа бүтээсэн дурсамжууд'">5. Дараарай</div>
-        <div class="card" onclick="this.innerText='Зүгээр л чи миний ертөнц учраас'">6. Дараарай</div>
-        <button class="btn-yes" onclick="nextPage(3)">Захидал унших</button>
+        <h2>Нууц код</h2>
+        <p>Бидний нандин кодыг оруулна уу:</p>
+        <input type="number" id="pin" placeholder="****">
+        <br><button onclick="checkPin()">Нэвтрэх</button>
     </div>
 
     <div id="page3" class="container hidden">
-        <h2>Миний хайртдаа...</h2>
-        <p>Чамтайгаа хамт байхад би дэлхийн хамгийн азтай залуу шиг санагддаг. Үргэлж миний хажууд байж, намайг гэрэлтүүлдэгт баярлалаа.</p>
-        <p><strong>Хүндэтгэсэн: Kukush</strong></p>
-        <button class="btn-yes" onclick="nextPage(4)">Дурсамжууд харах</button>
+        <h2>1. Чи бол миний нар ☀️</h2>
+        <p>Чи миний амьдралд ирсэн тэр өдрөөс хойш бүх зүйл өөр болсон. Чи миний ертөнцийг гэрэлтүүлдэг.</p>
+        <button onclick="nextPage(4)">Үргэлжлүүлэх</button>
     </div>
 
     <div id="page4" class="container hidden">
-        <h2>Бидний дурсамж</h2>
-        <div class="grid-memories">
-            <img src="IMG_3132.jpeg">
-            <img src="F2967D4A-FA33-483F-8C1A-DE37114C592F.jpeg">
-            <img src="5A196822-656D-423B-A679-8F9AB5E541C5.jpeg">
-            <img src="EF0DDA71-ADA7-485F-9963-1633FF111B30.jpeg">
-        </div>
-        <button class="btn-yes" onclick="nextPage(5)">Бидний дуу</button>
+        <h2>2. Хамгийн анхны...</h2>
+        <img src="IMG_3132.jpeg">
+        <p>Энэ зургийг харах бүрт анхны тэр гоё мэдрэмжүүд санагддаг. Чи үнэхээр үзэсгэлэнтэй.</p>
+        <button onclick="nextPage(5)">Дараагийнх</button>
     </div>
 
     <div id="page5" class="container hidden">
-    <h2>Чамайг надад юу бэлэглэдэг вэ? ✨</h2>
-    <div class="card" style="background: #fff0f3; border-left: 5px solid #ff4d6d;" onclick="this.innerText='Чиний дэргэд би хамгийн жаргалтай нь...'">
-        💖 Амар амгалан (Дарж үзээрэй)
+        <h2>3. Бидний инээд</h2>
+        <div class="card" onclick="this.innerText='Чиний минь инээмсэглэл хамгийн гоё нь'">Яагаад чамд хайртай вэ? (Дар)</div>
+        <div class="card" onclick="this.innerText='Чи намайг үргэлж ойлгодогт'">Яагаад чамд хайртай вэ? (Дар)</div>
+        <button onclick="nextPage(6)">Үргэлжлүүлэх</button>
     </div>
-    <div class="card" style="background: #f0f7ff; border-left: 5px solid #0077b6;" onclick="this.innerText='Чи надад үргэлж урам зориг өгдөг'">
-        🚀 Итгэл найдвар (Дарж үзээрэй)
-    </div>
-    <div class="card" style="background: #fdfaf0; border-left: 5px solid #ee9b00;" onclick="this.innerText='Бидний ирээдүй маш гэрэлтэй байна'">
-        ☀️ Гэрэл гэгээ (Дарж үзээрэй)
-    </div>
-    <p style="font-size: 13px; color: #888; margin-top: 15px;">(Дээрх картууд дээр дараад уншаарай)</p>
-    <br>
-    <button class="btn-yes" onclick="nextPage(6)">Хамгийн чухал асуулт...</button>
-</div>
 
     <div id="page6" class="container hidden">
-        <h2 id="question">Чи миний эхнэр болох уу? 💍</h2>
-        <button id="btn-yes-huge" class="btn-yes" onclick="nextPage(7)">ТИЙМ</button>
-        <button id="btn-no-small" class="btn-no" onmouseover="makeBigger()">ҮГҮЙ</button>
+        <h2>4. Дурсамж бүхэн нандин</h2>
+        <img src="F2967D4A-FA33-483F-8C1A-DE37114C592F.jpeg">
+        <p>Хамтдаа өнгөрүүлсэн мөч бүрийг би зүрхэндээ хадгалдаг. Хичнээн хол байсан ч зүрхээрээ хамт.</p>
+        <button onclick="nextPage(7)">Дараагийнх</button>
     </div>
 
-        <div id="page7" class="container hidden">
+    <div id="page7" class="container hidden">
         <h2>5. Миний мэдэх чи ❤️</h2>
-        <p>Чиний ухаалаг зан, зөөлөн сэтгэл, бас намайг гэх тэр их хайранд чинь би үргэлж талархдаг. Чи миний хувьд цор ганц.</p>
+        <p>Чиний ухаалаг зан, зөөлөн сэтгэл, бас намайг гэх тэр их хайранд чинь би үргэлж талархдаг.</p>
         <img src="5A196822-656D-423B-A679-8F9AB5E541C1.jpeg">
-        <button class="btn-next" onclick="nextPage(8)">Цаашаа</button>
+        <button onclick="nextPage(8)">Цаашаа</button>
     </div>
 
     <div id="page8" class="container hidden">
         <h2>6. Бидний ирээдүй 🏡</h2>
-        <p>Хамтдаа аялах, хамтдаа гэрээ тохижуулах, хамтдаа хөгшрөх тэр өдрүүдийг би тэсэн ядан хүлээж байна. Бидний түүх дөнгөж эхэлж байна.</p>
-        <button class="btn-next" onclick="nextPage(9)">Бараг дууслаа...</button>
+        <p>Хамтдаа аялах, хамтдаа гэрээ тохижуулах, хамтдаа хөгшрөх тэр өдрүүдийг би тэсэн ядан хүлээж байна.</p>
+        <button onclick="nextPage(9)">Бараг дууслаа...</button>
     </div>
 
     <div id="page9" class="container hidden">
         <h2>7. Үргэлж чиний талд</h2>
         <p>Ямар ч хэцүү үед би чинийхээ гараас чанга атгаад, үргэлж дэмжиж зогсох болно гэдгээ амлая.</p>
         <img src="EF0DDA71-ADA7-485F-9963-1633FF111B30.jpeg">
-        <button class="btn-next" onclick="nextPage(10)">Хамгийн чухал нь...</button>
+        <button onclick="nextPage(10)">Хамгийн чухал нь...</button>
     </div>
 
-         <div id="page10" class="container hidden">
+    <div id="page10" class="container hidden">
         <h2 style="font-size: 26px;">Эцсийн асуулт ✨</h2>
         <p id="q-text" style="font-size: 18px; font-weight: bold;">Чи миний эхнэр болж, насан туршдаа надтай хамт байх уу? 💍</p>
-        
         <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
-            <button id="yesBtn" onclick="finishProposal()" style="background: #ff4d6d; color: white; width: auto; padding: 15px 40px; font-size: 18px; z-index: 100;">ТИЙМ ❤️</button>
+            <button id="yesBtn" onclick="finishProposal()">ТИЙМ ❤️</button>
             <button id="noBtn" onmouseover="moveNoButton()" style="background: #eee; color: #888; width: auto; padding: 10px 30px; font-size: 14px; position: relative;">ҮГҮЙ</button>
         </div>
     </div>
 
     <script>
+        function nextPage(p) {
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+            document.getElementById('page' + p).classList.remove('hidden');
+        }
+
+        function checkPin() {
+            if(document.getElementById('pin').value === '3211') nextPage(3);
+            else alert('Буруу код байна!');
+        }
+
         function moveNoButton() {
             const btn = document.getElementById('noBtn');
-            // Дэлгэцийн хаана ч хамаагүй зугтах
             const x = Math.random() * (window.innerWidth - btn.offsetWidth);
             const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
 
-            // "Тийм" товчийг бага багаар томруулах
             let yesBtn = document.getElementById('yesBtn');
             let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
-            yesBtn.style.fontSize = (currentSize + 5) + 'px';
-            yesBtn.style.padding = (currentSize / 1.2) + 'px ' + (currentSize * 2) + 'px';
+            yesBtn.style.fontSize = (currentSize + 2) + 'px';
+            yesBtn.style.padding = (currentSize / 1.5) + 'px 40px';
         }
 
         function finishProposal() {
             document.getElementById('page10').innerHTML = `
                 <h1 style="color: #ff4d6d; font-size: 35px;">БАЯРЛАЛАА! ❤️</h1>
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueW9oNXA0eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnBvcz1jJmtxPXYmZ3Y9MSZpZD1nZmx4eHh4eHh4eHh4eHh4/l41lTfuxV6Zoopm4U/giphy.gif" style="width: 100%; border-radius: 15px;">
                 <p style="font-size: 18px; margin-top: 20px;">Би чамайг дэлхийн хамгийн аз жаргалтай эмэгтэй болгох болно. Би чамд хязгааргүй хайртай!</p>
                 <p><strong>Үүрд чинийх... 💍✨</strong></p>
             `;
         }
     </script>
+</body>
+</html>
