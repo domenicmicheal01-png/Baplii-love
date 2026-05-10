@@ -7,13 +7,13 @@
     <style>
         :root { --sakura: #ffb7c5; --skyblue: #87ceeb; }
         body { margin: 0; font-family: sans-serif; background: linear-gradient(135deg, var(--skyblue), var(--sakura)); display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
-        .container { background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 450px; width: 90%; margin: 20px; }
+        .container { background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 400px; width: 90%; margin: 20px; }
         .hidden { display: none; }
         button { padding: 12px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s; }
         .btn-yes { background-color: var(--sakura); color: white; border: 2px solid #ff9ead; }
         .btn-no { background-color: #eee; color: #666; }
-        .card { background: white; padding: 12px; margin: 8px; border-radius: 12px; border-left: 5px solid var(--sakura); cursor: pointer; font-size: 14px; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
-        input { padding: 12px; border-radius: 10px; border: 2px solid var(--sakura); text-align: center; font-size: 18px; width: 80%; margin-bottom: 10px; }
+        .card { background: white; padding: 12px; margin: 8px; border-radius: 12px; border-left: 5px solid var(--sakura); cursor: pointer; font-size: 14px; }
+        input { padding: 12px; border-radius: 10px; border: 2px solid var(--sakura); text-align: center; font-size: 18px; width: 80%; }
         img { width: 100%; border-radius: 15px; margin-bottom: 10px; object-fit: cover; height: 200px; }
         .grid-memories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
     </style>
@@ -29,8 +29,7 @@
     <div id="page-code" class="container hidden">
         <h2>Нууц кодоо оруулна уу</h2>
         <input type="number" id="code-input" placeholder="****">
-        <br>
-        <button class="btn-yes" onclick="checkCode()">Нэвтрэх</button>
+        <br><button class="btn-yes" onclick="checkCode()">Нэвтрэх</button>
     </div>
 
     <div id="page2" class="container hidden">
@@ -46,7 +45,7 @@
 
     <div id="page3" class="container hidden">
         <h2>Миний хайртдаа...</h2>
-        <p style="line-height: 1.6; font-size: 15px;">Энэхүү жижигхэн вэбсайтыг чамдаа зориулан хийлээ. Бидний хамтдаа өнгөрүүлсэн цаг хугацаа бүр миний хувьд хамгийн үнэ цэнэтэй. Чамтайгаа хамт байхад би дэлхийн хамгийн азтай залуу шиг санагддаг. Үргэлж миний хажууд байж, намайг гэрэлтүүлдэгт баярлалаа.</p>
+        <p>Чамтайгаа хамт байхад би дэлхийн хамгийн азтай залуу шиг санагддаг. Үргэлж миний хажууд байж, намайг гэрэлтүүлдэгт баярлалаа.</p>
         <p><strong>Хүндэтгэсэн: Kukush</strong></p>
         <button class="btn-yes" onclick="nextPage(4)">Дурсамжууд харах</button>
     </div>
@@ -54,22 +53,20 @@
     <div id="page4" class="container hidden">
         <h2>Бидний дурсамж</h2>
         <div class="grid-memories">
-            <img src="IMG_3132.jpeg">
-            <img src="F2967D4A-FA33-483F-8C1A-DE37114C592F.jpeg">
-            <img src="5A196822-656D-423B-A679-8F9AB5E541C1.jpeg">
-            <img src="EF0DDA71-ADA7-485F-9963-1633FF111B30.jpeg">
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <img src="3.jpg">
+            <img src="4.jpg">
         </div>
         <button class="btn-yes" onclick="nextPage(5)">Бидний дуу</button>
     </div>
 
-    <<div id="page5" class="container hidden">
-    <h2>Чамайг бодогдуулдаг дуу...</h2>
-    <p>Mac Miller - Congratulations</p>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/19ClmXp99S79oYpYv16C6M?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <br>
-    <button class="btn-yes" onclick="nextPage(6)">Үргэлжлүүлэх</button>
-</div>
-
+    <div id="page5" class="container hidden">
+        <h2>Бидний дуу...</h2>
+        <p>Mac Miller - Congratulations</p>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/10o9onsCDmZzbC9S8p_C6S?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <br><button class="btn-yes" onclick="nextPage(6)">Үргэлжлүүлэх</button>
+    </div>
 
     <div id="page6" class="container hidden">
         <h2 id="question">Чи миний эхнэр болох уу? 💍</h2>
@@ -80,7 +77,6 @@
     <div id="page7" class="container hidden">
         <h1>Баяр хүргэе! 🎉</h1>
         <h2>Чи миний эхнэр боллоо! ❤️</h2>
-        <p>Чамдаа хязгааргүй хайртай шүү.</p>
     </div>
 
     <script>
@@ -90,21 +86,17 @@
             if(page === 'code') document.getElementById('page-code').classList.remove('hidden');
             else document.getElementById('page' + page).classList.remove('hidden');
         }
-
         function checkCode() {
             if(document.getElementById('code-input').value === '3211') nextPage(2);
             else alert('Буруу код байна!');
         }
-
         function makeBigger() {
-            currentSize += 25;
+            currentSize += 30;
             const yesBtn = document.getElementById('btn-yes-huge');
             const noBtn = document.getElementById('btn-no-small');
             yesBtn.style.fontSize = currentSize + 'px';
             yesBtn.style.padding = (currentSize/2) + 'px ' + currentSize + 'px';
-            let noSize = 16 - (currentSize/15);
-            noBtn.style.fontSize = (noSize > 2 ? noSize : 2) + 'px';
-            if (currentSize > 150) noBtn.style.display = 'none';
+            if (currentSize > 180) noBtn.style.display = 'none';
         }
     </script>
 </body>
