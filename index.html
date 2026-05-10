@@ -83,30 +83,60 @@
         <button id="btn-no-small" class="btn-no" onmouseover="makeBigger()">ҮГҮЙ</button>
     </div>
 
-    <div id="page7" class="container hidden">
-        <h1>Баяр хүргэе! 🎉</h1>
-        <h2>Чи миний эхнэр боллоо! ❤️</h2>
+        <div id="page7" class="container hidden">
+        <h2>5. Миний мэдэх чи ❤️</h2>
+        <p>Чиний ухаалаг зан, зөөлөн сэтгэл, бас намайг гэх тэр их хайранд чинь би үргэлж талархдаг. Чи миний хувьд цор ганц.</p>
+        <img src="5A196822-656D-423B-A679-8F9AB5E541C1.jpeg">
+        <button class="btn-next" onclick="nextPage(8)">Цаашаа</button>
+    </div>
+
+    <div id="page8" class="container hidden">
+        <h2>6. Бидний ирээдүй 🏡</h2>
+        <p>Хамтдаа аялах, хамтдаа гэрээ тохижуулах, хамтдаа хөгшрөх тэр өдрүүдийг би тэсэн ядан хүлээж байна. Бидний түүх дөнгөж эхэлж байна.</p>
+        <button class="btn-next" onclick="nextPage(9)">Бараг дууслаа...</button>
+    </div>
+
+    <div id="page9" class="container hidden">
+        <h2>7. Үргэлж чиний талд</h2>
+        <p>Ямар ч хэцүү үед би чинийхээ гараас чанга атгаад, үргэлж дэмжиж зогсох болно гэдгээ амлая.</p>
+        <img src="EF0DDA71-ADA7-485F-9963-1633FF111B30.jpeg">
+        <button class="btn-next" onclick="nextPage(10)">Хамгийн чухал нь...</button>
+    </div>
+
+         <div id="page10" class="container hidden">
+        <h2 style="font-size: 26px;">Эцсийн асуулт ✨</h2>
+        <p id="q-text" style="font-size: 18px; font-weight: bold;">Чи миний эхнэр болж, насан туршдаа надтай хамт байх уу? 💍</p>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+            <button id="yesBtn" onclick="finishProposal()" style="background: #ff4d6d; color: white; width: auto; padding: 15px 40px; font-size: 18px; z-index: 100;">ТИЙМ ❤️</button>
+            <button id="noBtn" onmouseover="moveNoButton()" style="background: #eee; color: #888; width: auto; padding: 10px 30px; font-size: 14px; position: relative;">ҮГҮЙ</button>
+        </div>
     </div>
 
     <script>
-        let currentSize = 16;
-        function nextPage(page) {
-            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            if(page === 'code') document.getElementById('page-code').classList.remove('hidden');
-            else document.getElementById('page' + page).classList.remove('hidden');
+        function moveNoButton() {
+            const btn = document.getElementById('noBtn');
+            // Дэлгэцийн хаана ч хамаагүй зугтах
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+
+            // "Тийм" товчийг бага багаар томруулах
+            let yesBtn = document.getElementById('yesBtn');
+            let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 5) + 'px';
+            yesBtn.style.padding = (currentSize / 1.2) + 'px ' + (currentSize * 2) + 'px';
         }
-        function checkCode() {
-            if(document.getElementById('code-input').value === '3211') nextPage(2);
-            else alert('Буруу код байна!');
-        }
-        function makeBigger() {
-            currentSize += 30;
-            const yesBtn = document.getElementById('btn-yes-huge');
-            const noBtn = document.getElementById('btn-no-small');
-            yesBtn.style.fontSize = currentSize + 'px';
-            yesBtn.style.padding = (currentSize/2) + 'px ' + currentSize + 'px';
-            if (currentSize > 180) noBtn.style.display = 'none';
+
+        function finishProposal() {
+            document.getElementById('page10').innerHTML = `
+                <h1 style="color: #ff4d6d; font-size: 35px;">БАЯРЛАЛАА! ❤️</h1>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueW9oNXA0eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnBvcz1jJmtxPXYmZ3Y9MSZpZD1nZmx4eHh4eHh4eHh4eHh4/l41lTfuxV6Zoopm4U/giphy.gif" style="width: 100%; border-radius: 15px;">
+                <p style="font-size: 18px; margin-top: 20px;">Би чамайг дэлхийн хамгийн аз жаргалтай эмэгтэй болгох болно. Би чамд хязгааргүй хайртай!</p>
+                <p><strong>Үүрд чинийх... 💍✨</strong></p>
+            `;
         }
     </script>
-</body>
-</html>
